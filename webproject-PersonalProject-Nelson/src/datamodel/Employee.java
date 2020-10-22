@@ -15,7 +15,7 @@ import javax.persistence.Table;
   PRIMARY KEY (id));
  */
 @Entity
-@Table(name = "MyTable1021Nelson")
+@Table(name = "EmployeeNelson")
 public class Employee {
 
    @Id  // primary key
@@ -29,6 +29,13 @@ public class Employee {
    @Column(name = "last_name")
    private String last_name;
    
+   
+   @Column(name = "userName")
+   private String user;
+   
+   @Column(name = "address")
+   private String address;
+   
    @Column(name = "phone")
    private String phone;
    
@@ -38,20 +45,24 @@ public class Employee {
    public Employee() {
    }
 
-   public Employee(Integer id, String first_nameIn, String last_nameIn, String phoneIn, String emailIn) {
+   public Employee(Integer id, String first_nameIn, String last_nameIn, String phoneIn, String emailIn, String username, String addressIn) {
       this.id = id;
       this.first_name = first_nameIn;
       this.last_name = last_nameIn;
       this.phone = phoneIn;
       this.email = emailIn;
+      this.user = username;
+      this.address = addressIn;
       
    }
 
-   public Employee(String first_nameIn, String last_nameIn, String phoneIn, String emailIn) {
+   public Employee(String first_nameIn, String last_nameIn, String phoneIn, String emailIn,String username, String addressIn) {
 	   this.first_name = first_nameIn;
 	   this.last_name = last_nameIn;
 	   this.phone = phoneIn;
 	   this.email = emailIn;
+	   this.user = username;
+	   this.address = addressIn;
       
    }
 
@@ -82,14 +93,34 @@ public class Employee {
 
    public String getEmail() {
 	      return email;
-	   }
+   }
 
-	   public void setEmail(String in) {
+   public void setEmail(String in) {
 	      this.email = in;
-	   }
+   }
+   
+   public String getUser()
+   {
+	   return user;
+   }
+   
+   public void setUser(String in)
+   {
+	   this.user = in;
+   }
+   
+   public String getAddress()
+   {
+	   return this.address;
+   }
+   
+   public void setAddress(String in)
+   {
+	   this.address = in;
+   }
 
    @Override
    public String toString() {
-      return "Employee: " + this.id + ", " + this.first_name + ", " + this.last_name + ", " + this.phone + ", " + this.email;
+      return "Employee: " + this.id + ", " + this.first_name + ", " + this.last_name + ", " + this.user + ", " + this.phone + ", " + this.address + ", " + this.email;
    }
 }
